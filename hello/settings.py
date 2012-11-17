@@ -4,14 +4,8 @@ import gunicorn
 
 #FELIPE
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'staticfiles')
-STATIC_URL = '/static/'
 TEMPLATES_PATH = os.path.join(PROJECT_PATH, '../templates')
 
-STATICFILES_DIRS = (
-    # I have the static folder inside my app and not inside the project
-    os.path.join(PROJECT_PATH, 'static'),
-)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -143,6 +137,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'gunicorn',
+    'hello_app',
 )
 
 # A sample logging configuration. The only tangible logging
