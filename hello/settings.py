@@ -6,7 +6,7 @@ import gunicorn
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_PATH, 'staticfiles')
 STATIC_URL = '/static/'
-TEMPLATES_PATH = os.path.join(SITE_ROOT, 'templates')
+TEMPLATES_PATH = os.path.join(PROJECT_PATH, 'templates')
 
 STATICFILES_DIRS = (
     # I have the static folder inside my app and not inside the project
@@ -37,6 +37,9 @@ DATABASES = {
 
 # FELIPE: Heroku specific Database settings.
 import dj_database_url
+if not os.environ.has_key('DATABASE_URL'):
+    os.environ['DATABASE_URL'] = 'postgres://django_login:123456@localhost/django_db'
+    
 DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
 # Local time zone for this installation. Choices can be found here:
