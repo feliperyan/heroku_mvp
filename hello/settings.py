@@ -6,7 +6,7 @@ import gunicorn
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_PATH, 'staticfiles')
 STATIC_URL = '/static/'
-TEMPLATES_PATH = os.path.join(PROJECT_PATH, 'templates')
+TEMPLATES_PATH = os.path.join(PROJECT_PATH, '../templates')
 
 STATICFILES_DIRS = (
     # I have the static folder inside my app and not inside the project
@@ -128,6 +128,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    TEMPLATES_PATH,
 )
 
 INSTALLED_APPS = (
