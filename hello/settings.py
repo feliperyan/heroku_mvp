@@ -29,18 +29,22 @@ DATABASES = {
 }
 """
 
-# FELIPE: Heroku specific Database settings.
-import dj_database_url
-if not os.environ.has_key('DATABASE_URL'):
-    os.environ['DATABASE_URL'] = 'postgres://django_login:123456@localhost/django_db'
-    
-DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Australia/Sydney'
+
+# If you set this to False, Django will not use timezone-aware datetimes.
+USE_TZ = False
+
+# FELIPE: Heroku specific Database settings.
+import dj_database_url
+if not os.environ.has_key('DATABASE_URL'):
+    os.environ['DATABASE_URL'] = 'postgres://localhost/troca_eu'
+    
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -55,9 +59,6 @@ USE_I18N = True
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
 USE_L10N = True
-
-# If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -138,6 +139,8 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'gunicorn',
     'hello_app',
+    'floppyforms',
+
 )
 
 # A sample logging configuration. The only tangible logging
