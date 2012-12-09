@@ -6,8 +6,14 @@ import gunicorn
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 TEMPLATES_PATH = os.path.join(PROJECT_PATH, '../templates')
 
-RECAPTCHA_PUBLIC_KEY = '6Lei79kSAAAAAAo407s2NEJZuxXwow7KVMcvyiF3'
-RECAPTCHA_PRIVATE_KEY = '6Lei79kSAAAAAKVZG5UD3275rypaH2Q64RZx0DSY'
+#This is for the original troca.eu which didn't work on heroku but did in dev...
+#RECAPTCHA_PUBLIC_KEY = '6Lei79kSAAAAAAo407s2NEJZuxXwow7KVMcvyiF3'
+#RECAPTCHA_PRIVATE_KEY = '6Lei79kSAAAAAKVZG5UD3275rypaH2Q64RZx0DSY'
+
+#This is for the heroku url
+RECAPTCHA_PUBLIC_KEY = '6LdDItoSAAAAADWOf5KflPrzxcd0ISSe7z1MqPRs'
+RECAPTCHA_PRIVATE_KEY = '6LdDItoSAAAAAMa3Uq6SXIdqBGOQVrXB-MlhHcyt'
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
