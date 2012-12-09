@@ -20,7 +20,7 @@
     }
 
     .form-signin {
-        max-width: 300px;
+        max-width: 400px;
         padding: 19px 29px 29px;
         margin: 0 auto 20px;
         background-color: #fff;
@@ -79,7 +79,10 @@
             </label>
         </fieldset>
 
-        <input type="submit" value="Submit" class="btn btn-large btn-primary" />
+        {{ form.captcha }}
+        {{ form.captcha.errors }}
+
+        <input type="submit" value="Submit" class="btn btn-large btn-primary" style="margin-top: 10pt;" />
     </form>
 
 

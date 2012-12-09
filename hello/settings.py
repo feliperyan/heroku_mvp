@@ -6,6 +6,8 @@ import gunicorn
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 TEMPLATES_PATH = os.path.join(PROJECT_PATH, '../templates')
 
+RECAPTCHA_PUBLIC_KEY = '6Lei79kSAAAAAAo407s2NEJZuxXwow7KVMcvyiF3'
+RECAPTCHA_PRIVATE_KEY = '6Lei79kSAAAAAKVZG5UD3275rypaH2Q64RZx0DSY'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -140,6 +142,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'hello_app',
     'floppyforms',
+    'captcha',
 
 )
 

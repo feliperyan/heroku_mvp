@@ -1,5 +1,5 @@
 import floppyforms as forms
-
+from captcha.fields import ReCaptchaField
 
 class FeedbackForm(forms.Form):
     
@@ -17,3 +17,5 @@ class FeedbackForm(forms.Form):
     wantsBadges = forms.BooleanField(required=False, label='Are you interested in badges?')
 
     comments = forms.CharField(widget=forms.Textarea(attrs={'rows':3, 'cols':60}), required=False)
+
+    captcha = ReCaptchaField(attrs={'theme' : 'white'})
