@@ -4,7 +4,7 @@ from hello_app.forms import *
 from django.http import HttpResponseRedirect
 from hello_app.models import *
 
-def index(request):
+def contact(request):
     if request.method == 'POST': # If the form has been submitted...
         
         form = FeedbackForm(request.POST) # A form bound to the POST data
@@ -25,13 +25,20 @@ def index(request):
             f.save()
 
             return HttpResponseRedirect('/thanks/') # Redirect after POST
+
+        #else: #if the form is NOT valid:
+
     
     else:
         form = FeedbackForm() # An unbound form
 
-    return render(request, 'index.html', {
+    return render(request, 'contact.html', {
         'form': form,
     })
 
 def thanks(request):
     return render(request, 'thanks.html', {} )
+
+
+def index(request):
+    return render(request, 'index.html')

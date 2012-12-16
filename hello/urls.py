@@ -18,7 +18,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^$', include(hello_app.urls)),
     url(r'^$', index),
-    url(r'^thanks/', thanks),
+    url(r'^thanks/', thanks, name='thanks'),
+    url(r'^contact/$', contact, name='contact'),
 )
 
 #FELIPE: MUST CHANGE THIS!

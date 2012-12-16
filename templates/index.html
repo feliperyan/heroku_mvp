@@ -1,89 +1,68 @@
 {% extends "base.html" %}
-{% load tags %}
 
 {%block head%}
+    <style type="text/css">
+        .background_div{
+            margin-top:20pt;
+        }
 
-<style type="text/css">
-    .fix_checkbox input {
-        float:left; 
-        margin-right:4pt;
-    }
+        body {
+            background: url('{{ STATIC_URL }}images/arpoador_blurry2.jpg') top no-repeat;
+        }
 
-    .errorlist {
-        color: red;
-    }
+        .callouts {
+            text-align: center;
+            
+        }
 
-    body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-    }
+        .transparent{
+            margin-top:20pt; 
+            background-color: transparent;
+            color: white;
+            padding-left: 0px;
+        }
 
-    .form-signin {
-        max-width: 400px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-        box-shadow: 0 1px 2px rgba(0,0,0,.05);
-    }
-    .form-signin .form-signin-heading,
-    .form-signin .checkbox {
-        margin-bottom: 10px;
-    }
-    
-    .form-signin input[type="text"],
-    .form-signin input[type="email"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-    }
+        .hero-unit small {
+            font-size: 14pt;
+            display: block;
+            margin-bottom: 20pt;
+        }
 
-</style>
+    </style>
 
 {%endblock%}
 
 {%block content%}
 
-    <form class="form-signin" action="/" method="post">{% csrf_token %}
-        <h2 class="form-signin-heading"> Give us your feedback: </h2>        
+    <div class="container">
+        <div class="hero-unit transparent">
 
-        {{ form.name.label_tag }} {{ form.name }}
-        {{ form.name.errors }}
+            <h1>Swapping</h1>
+            <small> Things, Services and your Time.</small>
 
-        {{ form.email.label_tag }} {{ form.email }}
-        {{ form.email.errors }}
+            <a href="/contact" class="btn btn-primary btn-large">Sign-up for beta</a>
 
-        <fieldset>
-            <legend>Are you interested in...</legend>
-            <label class="checkbox" for="{{ form.wantsServicesXchange.id_for_label }}">
-                {{ form.wantsServicesXchange }} Services.
-            </label>
-            <label class="checkbox" for="{{ form.wantsGoodsXchange.id_for_label }}">
-                {{ form.wantsGoodsXchange }} Goods.
-            </label>
-            <label class="checkbox" for="{{ form.wantsCharityXchange.id_for_label }}">
-                {{ form.wantsCharityXchange }} Charity.
-            </label>
-            <label class="checkbox" for="{{ form.wantsLocationXchange.id_for_label }}">
-                {{ form.wantsLocationXchange }} Location.
-            </label>
-            <label class="checkbox" for="{{ form.wantsBadges.id_for_label }}">
-                {{ form.wantsBadges }} Badges.
-            </label>
-        </fieldset>
-
-        {{ form.captcha }}
-        {{ form.captcha.errors }}
-
-        <input type="submit" value="Submit" class="btn btn-large btn-primary" style="margin-top: 10pt;" />
-    </form>
-
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row callouts">
+            <div class="span4">
+                <h2>What's out there</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+            <div class="span4">
+                <h2>List something</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+           </div>
+            <div class="span4">
+                <h2>Volunteering</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
 
 {%endblock%}
