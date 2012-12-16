@@ -3,37 +3,30 @@
 {%block head%}
     <style type="text/css">
         .background_div{
-            margin-top:20pt;
-        }
-
-        body {
             background: url('{{ STATIC_URL }}images/arpoador_blurry2.jpg') top no-repeat;
-        }
-
+            background-size: cover;
+        } 
         .callouts {
-            text-align: center;
-            
+            text-align: center;   
         }
-
         .transparent{
             margin-top:20pt; 
             background-color: transparent;
             color: white;
             padding-left: 0px;
+            margin-bottom: 0px;
         }
-
         .hero-unit small {
             font-size: 14pt;
             display: block;
             margin-bottom: 20pt;
         }
-
     </style>
 
 {%endblock%}
 
 {%block content%}
-
+<div class="background_div">
     <div class="container">
         <div class="hero-unit transparent">
 
@@ -44,6 +37,7 @@
 
         </div>
     </div>
+</div>
     
     <div class="container">
         <div class="row callouts">
