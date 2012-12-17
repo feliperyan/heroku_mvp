@@ -3,8 +3,10 @@ import settings
 from hello_app.views import *
 
 # Uncomment the next two lines to enable the admin:
-from django.contrib import admin
-admin.autodiscover()
+#from django.contrib import admin
+#admin.autodiscover()
+
+from hello_app.admin import my_admin
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,7 +17,9 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+    #url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(my_admin.urls)),
+
     #url(r'^$', include(hello_app.urls)),
     url(r'^$', index),
     url(r'^thanks/', thanks, name='thanks'),

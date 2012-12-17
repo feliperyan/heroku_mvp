@@ -1,6 +1,13 @@
 import floppyforms as forms
 from captcha.fields import ReCaptchaField
 
+from django.contrib.auth.forms import AuthenticationForm
+
+class MyAdminLoginForm(AuthenticationForm):
+    captcha = ReCaptchaField(attrs={'theme' : 'white'})
+
+    
+
 class FeedbackForm(forms.Form):
     
     name = forms.CharField(required=True,\
