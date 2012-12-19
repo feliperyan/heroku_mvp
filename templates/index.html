@@ -1,6 +1,19 @@
 {% extends "base.html" %}
 
 {%block head%}
+
+    <script src="{{ STATIC_URL }}jquery1.8.3.js"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.carousel').carousel({
+                interval: 4000
+            });
+        });
+    </script>
+
+
     <style type="text/css">
         .background_div{
             background: url('{{ STATIC_URL }}images/arpoador_blurry2.jpg') top no-repeat;
@@ -15,31 +28,59 @@
             color: white;
             padding-left: 0px;
             margin-bottom: 0px;
+            
         }
         .hero-unit small {
             font-size: 14pt;
             display: block;
             margin-bottom: 20pt;
         }
+
     </style>
+
+
+    
 
 {%endblock%}
 
 {%block content%}
+
+
 <div class="background_div">
     <div class="container">
-        <div class="hero-unit transparent">
+        <div class="hero-unit transparent" style="float: left;">
 
             <h1>Swapping</h1>
             <small> Things, Services and your Time.</small>
-
             <a href="/contact" class="btn btn-primary btn-large">Sign-up for beta</a>
-
         </div>
+
+            <div class="row hero-unit transparent" style="float: right;" >
+            <div class="span4">
+                <div id="myCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="active item"> 
+                            <img src="{{ STATIC_URL }}images/one.png" alt="HTML5 logo" width="300" height="300" /> 
+                        </div>
+                        <div class="item"> 
+                            <img src="{{ STATIC_URL }}images/two.png" alt="HTML5 logo" width="300" height="300" /> 
+                        </div>
+                        <div class="item"> 
+                            <img src="{{ STATIC_URL }}images/three.png" alt="HTML5 logo" width="300" height="300" /> 
+                        </div>
+                    </div>
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
+            </div>
+    </div>
+
+
     </div>
 </div>
     
     <div class="container">
+
         <div class="row callouts">
             <div class="span4">
                 <h2>What's out there</h2>
