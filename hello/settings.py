@@ -6,6 +6,9 @@ import gunicorn
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 TEMPLATES_PATH = os.path.join(PROJECT_PATH, '../templates')
 
+HEROKU_APP_NAME = 'troca.herokuapp.com'
+CUSTOM_DOMAIN = 'www.troca.eu'
+
 #This is for the original troca.eu which didn't work on heroku but did in dev...
 #RECAPTCHA_PUBLIC_KEY = '6Lei79kSAAAAAAo407s2NEJZuxXwow7KVMcvyiF3'
 #RECAPTCHA_PRIVATE_KEY = '6Lei79kSAAAAAKVZG5UD3275rypaH2Q64RZx0DSY'
@@ -120,6 +123,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'hello_app.views.URLRedirectMiddleware',
 )
 
 ROOT_URLCONF = 'hello.urls'

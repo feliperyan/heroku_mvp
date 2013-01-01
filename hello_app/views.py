@@ -4,6 +4,23 @@ from hello_app.forms import *
 from django.http import HttpResponseRedirect
 from hello_app.models import *
 
+import re
+from django.http import HttpResponsePermanentRedirect
+from django.conf import settings
+
+class URLRedirectMiddleware:
+    """
+    Middleware to redirect request to the Heroku app name URL to the custom domain instead.
+    """
+
+    def process_request(self, request):
+        host = request.META['HTTP_HOST']
+        if settings.HEROKU_APP_NAME in host:
+            return HttpResponsePermanentRedirect(settings.CUSTOM_DOMAIN_NAME+request.META['PATH_INFO'])
+
+
+
+
 def contact(request):
     if request.method == 'POST': # If the form has been submitted...
         
